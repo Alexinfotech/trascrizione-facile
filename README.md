@@ -16,7 +16,6 @@ Fornire uno strumento di dettatura potente e flessibile che permetta agli utenti
 - Creare regole di sostituzione per correggere la pronuncia o usare abbreviazioni.
 - Esportare e importare profili per backup o condivisione.
 
-## Stato Attuale (Maggio 2024)
 
 Il progetto ha una base di codice significativa che implementa:
 
@@ -99,7 +98,6 @@ Il progetto ha una base di codice significativa che implementa:
   ```
 
 DOCUMENTAZIONE DI CONSEGNA PROGETTO: APPLICAZIONE DI TRASCRIZIONE VOCALE
-Data: 11 Maggio 2024
 Progetto: Applicazione Desktop per macOS per Trascrizione Vocale Avanzata
 Tecnologie Principali Proposte/Utilizzate: Python, Whisper (locale), PyQt6, PyAutoGUI, PyInstaller.
 
