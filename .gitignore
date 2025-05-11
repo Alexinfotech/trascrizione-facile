@@ -1,0 +1,48 @@
+# Ambiente virtuale Python
+venv/
+*.venv/
+env/
+ENV/
+*/activate_this.py
+
+# File di cache e bytecode Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# File di configurazione IDE e editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# File di sistema operativo
+.DS_Store
+Thumbs.db
+
+# File di build di PyInstaller
+build/
+dist/
+# *.spec # Commentato per ora, decidi se vuoi tracciarlo
+
+# File di database (se ne usi, es. SQLite)
+*.sqlite3
+*.db
+
+# Pacchetti e dipendenze scaricate localmente
+# (non dovrebbe essere un problema con venv)
+
+# File specifici di macOS per build
+*.egg-info/
+.Python/
+
+# File di output di test
+htmlcov/
+.tox/
+.coverage
+.pytest_cache/
+
+# Altri file temporanei o di backup
+*.bak
+*.tmp
+*~
