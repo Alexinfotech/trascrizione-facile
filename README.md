@@ -1,108 +1,5 @@
 # TrascriviPro Avanzato (trascrizione-facile)
 
-# ... (altre sezioni del README come definite prima) ...
-
-## 5. Installazione e Avvio
-
-Questa applicazione è stata sviluppata e ottimizzata con l'obiettivo di diventare un'applicazione `.app` **installabile e nativa per macOS**. Le istruzioni seguenti si riferiscono all'esecuzione del codice sorgente in un ambiente di sviluppo, principalmente su macOS.
-
-### 5.1. Prerequisiti (per macOS, ambiente di sviluppo)
-
--   **macOS:** L'ambiente di sviluppo e test primario.
--   **Python:** Versione 3.9 o superiore. Puoi verificarlo con `python3 --version`.
--   **Pip:** Gestore di pacchetti Python, solitamente installato con Python.
--   **FFmpeg:** Whisper richiede FFmpeg per la gestione dei formati audio.
-    -   Installazione tramite [Homebrew](https://brew.sh/index_it) (consigliato su macOS):
-        ```bash
-        brew install ffmpeg
-        ```
--   **PortAudio:** `sounddevice` dipende da PortAudio. Su macOS, di solito è gestito correttamente. Se necessario:
-    ```bash
-    brew install portaudio
-    ```
-
-### 5.2. Creazione Ambiente Virtuale e Installazione Dipendenze (macOS)
-
-Per mantenere le dipendenze del progetto isolate, consiglio caldamente di usare un ambiente virtuale.
-
-1.  **Clona il Repository:**
-    ```bash
-    git clone https://github.com/Alexinfotech/trascrizione-facile.git
-    cd trascrizione-facile
-    ```
-2.  **Crea un ambiente virtuale** (lo chiamo `venv`):
-    ```bash
-    python3 -m venv venv
-    ```
-3.  **Attiva l'ambiente virtuale:**
-    ```bash
-    source venv/bin/activate
-    ```
-    (Il prompt del terminale mostrerà `(venv)` all'inizio).
-4.  **Installa le dipendenze** dal file `requirements.txt`:
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *Il file `requirements.txt` contiene tutte le librerie necessarie come PyQt6, openai-whisper, torch, torchaudio, sounddevice, pyautogui, e numpy.*
-
-### 5.3. Avvio dell'Applicazione (macOS, da sorgente)
-
-Con l'ambiente virtuale attivato e le dipendenze installate, dalla directory principale del progetto (`trascrizione-facile/`):
-```bash
-python -m src.main
-
-
-
-L'applicazione dovrebbe avviarsi. I log verranno stampati sulla console e salvati nel file app.log nella directory di supporto dell'applicazione (~/Library/Application Support/TrascriviPro Avanzato/logs/ su macOS).
-X. Note per l'Esecuzione su Windows (da Sorgente, Sperimentale)
-Sebbene questa applicazione sia stata progettata e ottimizzata primariamente per macOS con l'intento di creare un'app .app installabile, è teoricamente possibile eseguire il codice sorgente anche su Windows. Tuttavia, questo richiede una configurazione manuale più complessa e non è garantito che tutte le funzionalità si comportino esattamente come su macOS senza specifici test e adattamenti.
-Se desideri provare ad eseguire l'applicazione da sorgente su un PC Windows utilizzando, ad esempio, Visual Studio Code:
-Clona il Repository su Windows:
-git clone https://github.com/Alexinfotech/trascrizione-facile.git
-cd trascrizione-facile
-
-
-
-Bash
-Configura un Ambiente Python su Windows:
-Installa Python 3.9+ per Windows da python.org (assicurati di aggiungere Python al PATH).
-Crea un ambiente virtuale:
-python -m venv venv
-Use code with caution.
-Bash
-Attiva l'ambiente virtuale (il comando è diverso su Windows):
-.\venv\Scripts\activate
-Use code with caution.
-Bash
-Installa le Dipendenze Critiche per Windows:
-FFmpeg per Windows:
-Scarica i binari di FFmpeg per Windows (es. da gyan.dev). Scegli una release build (non la nightly).
-Estrai l'archivio (es. in C:\ffmpeg).
-Aggiungi la cartella bin di FFmpeg (es. C:\ffmpeg\bin) al PATH di sistema di Windows. In alternativa, puoi copiare ffmpeg.exe, ffplay.exe, ffprobe.exe nella stessa cartella dello script Python principale o in una cartella già nel PATH. Questo è cruciale per Whisper.
-PyTorch e Torchaudio per Windows: L'installazione di PyTorch può essere specifica. Visita il sito ufficiale di PyTorch e usa il configuratore per ottenere il comando pip corretto per la tua configurazione (es. CPU-only o con supporto CUDA se hai una GPU NVIDIA).
-Esempio per CPU-only (verifica sempre sul sito di PyTorch per il comando più aggiornato):
-pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-Use code with caution.
-Bash
-Altre Dipendenze Python: Installa il resto delle dipendenze da requirements.txt (se hai adattato PyTorch) o manualmente:
-pip install PyQt6 openai-whisper sounddevice pyautogui numpy
-Use code with caution.
-Bash
-(Se requirements.txt include una versione specifica di torch/torchaudio non adatta a Windows, installale separatamente come sopra e poi installa il resto).
-Esegui l'Applicazione:
-Dal terminale (con l'ambiente virtuale attivo):
-python -m src.main
-Use code with caution.
-Bash
-Potenziali Aree di Modifica/Verifica per Windows:
-Percorsi File: La logica in src/config.py per APP_BASE_DATA_PATH tenta già di gestire Windows usando %APPDATA%. Verifica che i profili e i log vengano creati e letti correttamente (solitamente in C:\Users\TUO_UTENTE\AppData\Roaming\TrascriviPro Avanzato\).
-sounddevice: La selezione del microfono e il suo funzionamento potrebbero richiedere verifiche.
-pyautogui: L'interazione con altre applicazioni (output esterno) va testata. Potrebbe funzionare senza i permessi di Accessibilità richiesti da macOS, ma UAC o antivirus potrebbero interferire.
-Estetica GUI: Piccole differenze visive sono normali tra macOS e Windows con PyQt6.
-Librerie C++ Ridistribuibili: Alcune dipendenze potrebbero richiedere l'installazione di specifici pacchetti ridistribuibili di Microsoft Visual C++ se non già presenti.
-
-
-
 vers 1.0.0
 
 Applicazione desktop per macOS per la trascrizione vocale in tempo reale, altamente personalizzabile, basata su Python, Whisper (locale) e PyQt6.
@@ -478,6 +375,109 @@ Le directory `profiles/` e `logs/` vengono create dinamicamente dall'applicazion
     ```
 
     _Nota: `openai-whisper` installerà `torch` e `torchaudio` come dipendenze, il che potrebbe richiedere del tempo._
+
+
+## 5. Installazione e Avvio
+
+Questa applicazione è stata sviluppata e ottimizzata con l'obiettivo di diventare un'applicazione `.app` **installabile e nativa per macOS**. Le istruzioni seguenti si riferiscono all'esecuzione del codice sorgente in un ambiente di sviluppo, principalmente su macOS.
+
+### 5.1. Prerequisiti (per macOS, ambiente di sviluppo)
+
+-   **macOS:** L'ambiente di sviluppo e test primario.
+-   **Python:** Versione 3.9 o superiore. Puoi verificarlo con `python3 --version`.
+-   **Pip:** Gestore di pacchetti Python, solitamente installato con Python.
+-   **FFmpeg:** Whisper richiede FFmpeg per la gestione dei formati audio.
+    -   Installazione tramite [Homebrew](https://brew.sh/index_it) (consigliato su macOS):
+        ```bash
+        brew install ffmpeg
+        ```
+-   **PortAudio:** `sounddevice` dipende da PortAudio. Su macOS, di solito è gestito correttamente. Se necessario:
+    ```bash
+    brew install portaudio
+    ```
+
+### 5.2. Creazione Ambiente Virtuale e Installazione Dipendenze (macOS)
+
+Per mantenere le dipendenze del progetto isolate, consiglio caldamente di usare un ambiente virtuale.
+
+1.  **Clona il Repository:**
+    ```bash
+    git clone https://github.com/Alexinfotech/trascrizione-facile.git
+    cd trascrizione-facile
+    ```
+2.  **Crea un ambiente virtuale** (lo chiamo `venv`):
+    ```bash
+    python3 -m venv venv
+    ```
+3.  **Attiva l'ambiente virtuale:**
+    ```bash
+    source venv/bin/activate
+    ```
+    (Il prompt del terminale mostrerà `(venv)` all'inizio).
+4.  **Installa le dipendenze** dal file `requirements.txt`:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *Il file `requirements.txt` contiene tutte le librerie necessarie come PyQt6, openai-whisper, torch, torchaudio, sounddevice, pyautogui, e numpy.*
+
+### 5.3. Avvio dell'Applicazione (macOS, da sorgente)
+
+Con l'ambiente virtuale attivato e le dipendenze installate, dalla directory principale del progetto (`trascrizione-facile/`):
+```bash
+python -m src.main
+
+
+
+L'applicazione dovrebbe avviarsi. I log verranno stampati sulla console e salvati nel file app.log nella directory di supporto dell'applicazione (~/Library/Application Support/TrascriviPro Avanzato/logs/ su macOS).
+X. Note per l'Esecuzione su Windows (da Sorgente, Sperimentale)
+Sebbene questa applicazione sia stata progettata e ottimizzata primariamente per macOS con l'intento di creare un'app .app installabile, è teoricamente possibile eseguire il codice sorgente anche su Windows. Tuttavia, questo richiede una configurazione manuale più complessa e non è garantito che tutte le funzionalità si comportino esattamente come su macOS senza specifici test e adattamenti.
+Se desideri provare ad eseguire l'applicazione da sorgente su un PC Windows utilizzando, ad esempio, Visual Studio Code:
+Clona il Repository su Windows:
+git clone https://github.com/Alexinfotech/trascrizione-facile.git
+cd trascrizione-facile
+
+
+
+Bash
+Configura un Ambiente Python su Windows:
+Installa Python 3.9+ per Windows da python.org (assicurati di aggiungere Python al PATH).
+Crea un ambiente virtuale:
+python -m venv venv
+Use code with caution.
+Bash
+Attiva l'ambiente virtuale (il comando è diverso su Windows):
+.\venv\Scripts\activate
+Use code with caution.
+Bash
+Installa le Dipendenze Critiche per Windows:
+FFmpeg per Windows:
+Scarica i binari di FFmpeg per Windows (es. da gyan.dev). Scegli una release build (non la nightly).
+Estrai l'archivio (es. in C:\ffmpeg).
+Aggiungi la cartella bin di FFmpeg (es. C:\ffmpeg\bin) al PATH di sistema di Windows. In alternativa, puoi copiare ffmpeg.exe, ffplay.exe, ffprobe.exe nella stessa cartella dello script Python principale o in una cartella già nel PATH. Questo è cruciale per Whisper.
+PyTorch e Torchaudio per Windows: L'installazione di PyTorch può essere specifica. Visita il sito ufficiale di PyTorch e usa il configuratore per ottenere il comando pip corretto per la tua configurazione (es. CPU-only o con supporto CUDA se hai una GPU NVIDIA).
+Esempio per CPU-only (verifica sempre sul sito di PyTorch per il comando più aggiornato):
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+Use code with caution.
+Bash
+Altre Dipendenze Python: Installa il resto delle dipendenze da requirements.txt (se hai adattato PyTorch) o manualmente:
+pip install PyQt6 openai-whisper sounddevice pyautogui numpy
+Use code with caution.
+Bash
+(Se requirements.txt include una versione specifica di torch/torchaudio non adatta a Windows, installale separatamente come sopra e poi installa il resto).
+Esegui l'Applicazione:
+Dal terminale (con l'ambiente virtuale attivo):
+python -m src.main
+Use code with caution.
+Bash
+Potenziali Aree di Modifica/Verifica per Windows:
+Percorsi File: La logica in src/config.py per APP_BASE_DATA_PATH tenta già di gestire Windows usando %APPDATA%. Verifica che i profili e i log vengano creati e letti correttamente (solitamente in C:\Users\TUO_UTENTE\AppData\Roaming\TrascriviPro Avanzato\).
+sounddevice: La selezione del microfono e il suo funzionamento potrebbero richiedere verifiche.
+pyautogui: L'interazione con altre applicazioni (output esterno) va testata. Potrebbe funzionare senza i permessi di Accessibilità richiesti da macOS, ma UAC o antivirus potrebbero interferire.
+Estetica GUI: Piccole differenze visive sono normali tra macOS e Windows con PyQt6.
+Librerie C++ Ridistribuibili: Alcune dipendenze potrebbero richiedere l'installazione di specifici pacchetti ridistribuibili di Microsoft Visual C++ se non già presenti.
+
+
+
 
 ### Avvio dell'Applicazione
 
