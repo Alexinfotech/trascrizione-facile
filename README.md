@@ -929,15 +929,6 @@ Questo processo di firma e notarizzazione è più avanzato e non strettamente ne
 - **Localizzazione:** Traduzione dell'interfaccia utente in altre lingue.
 - **Utilizzo di `whisper.cpp`:** Per una potenziale maggiore efficienza e minori dipendenze rispetto alla versione Python di Whisper, anche se l'integrazione sarebbe più complessa.
 
-## Contributi
-
-[Indicare se e come si accettano contributi, es. Pull Request su GitHub, segnalazione di bug, ecc.]
-
-## Licenza
-
----
-
-````
 
 **Considerazioni Aggiuntive:**
 
@@ -972,12 +963,14 @@ app_logger.info(f"TextProcessor ... Originale (strip e filtro token)='{processed
 
 
 
+```markdown
 none.gitignore
 
+```
+```
 alessandrotornabene@MacBook-Pro-4 refertazioneFacile % cat .gitignore
 
 # Ambiente virtuale Python
-
 venv/
 _.venv/
 env/
@@ -985,58 +978,50 @@ ENV/
 _/activate_this.py
 
 # File di cache e bytecode Python
-
-**pycache**/
+**/pycache**/
 _.py[cod]
 _$py.class
 
 # File di configurazione IDE e editor
-
 .vscode/
 .idea/
 _.sublime-project
 _.sublime-workspace
 
 # File di sistema operativo
-
 .DS_Store
 Thumbs.db
 
 # File di build di PyInstaller
-
 build/
 dist/
 
-# \*.spec # Commentato per ora, decidi se vuoi tracciarlo
+# *.spec # Commentato per ora, decidi se vuoi tracciarlo
 
 # File di database (se ne usi, es. SQLite)
-
 _.sqlite3
 _.db
 
 # Pacchetti e dipendenze scaricate localmente
-
 # (non dovrebbe essere un problema con venv)
 
 # File specifici di macOS per build
-
-\*.egg-info/
+*.egg-info/
 .Python/
 
 # File di output di test
-
 htmlcov/
 .tox/
 .coverage
 .pytest_cache/
 
 # Altri file temporanei o di backup
-
 _.bak
 _.tmp
-\*~
-alessandrotornabene@MacBook-Pro-4 refertazioneFacile %
-g
+*~
+```
+```
+alessandrotornabene@MacBook-Pro-4 refertazioneFacile % g
 
 git init
 
@@ -1052,8 +1037,7 @@ hint:
 hint: git branch -m <name>
 Inizializzato repository Git vuoto in /Users/alessandrotornabene/Documents/refertazioneFacile/.git/
 
-alessandrotornabene@MacBook-Pro-4 refertazioneFacile % git commit
--m " Commit iniziale, vers 1.0.1 readme, assets"
+alessandrotornabene@MacBook-Pro-4 refertazioneFacile % git commit -m " Commit iniziale, vers 1.0.1 readme, assets"
 Sul branch master
 
 Commit iniziale
@@ -1061,22 +1045,22 @@ Commit iniziale
 alessandrotornabene@MacBook-Pro-4 refertazioneFacile % git add .
 alessandrotornabene@MacBook-Pro-4 refertazioneFacile % git commit -m " Commit iniziale, vers 1.0.1 readme, assets"
 [master (commit radice) 321026f] Commit iniziale, vers 1.0.1 readme, assets
-15 files changed, 3910 insertions(+)
-create mode 100644 .gitignore
-create mode 100644 README.md
-create mode 100644 assets/.gitkeep
-create mode 100644 build_scripts/build_app.spec
-create mode 100644 requirements.txt
-create mode 100644 src/config.py
-create mode 100644 src/core/output_handler.py
-create mode 100644 src/core/profile_manager.py
-create mode 100644 src/core/text_processor.py
-create mode 100644 src/core/transcriber.py
-create mode 100644 src/gui/main_window.py
-create mode 100644 src/gui/profile_dialogs.py
-create mode 100644 src/gui/settings_dialog.py
-create mode 100644 src/main.py
-create mode 100644 src/utils/logger.py
+ 15 files changed, 3910 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 assets/.gitkeep
+ create mode 100644 build_scripts/build_app.spec
+ create mode 100644 requirements.txt
+ create mode 100644 src/config.py
+ create mode 100644 src/core/output_handler.py
+ create mode 100644 src/core/profile_manager.py
+ create mode 100644 src/core/text_processor.py
+ create mode 100644 src/core/transcriber.py
+ create mode 100644 src/gui/main_window.py
+ create mode 100644 src/gui/profile_dialogs.py
+ create mode 100644 src/gui/settings_dialog.py
+ create mode 100644 src/main.py
+ create mode 100644 src/utils/logger.py
 alessandrotornabene@MacBook-Pro-4 refertazioneFacile %
 
 alessandrotornabene@MacBook-Pro-4 refertazioneFacile % git status
@@ -1096,7 +1080,7 @@ Compressione oggetti in corso: 100% (17/17), fatto.
 Scrittura degli oggetti in corso: 100% (21/21), 61.92 KiB | 8.85 MiB/s, fatto.
 Total 21 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 To https://github.com/Alexinfotech/trascrizione-facile.git
-
-- [new branch] main -> main
-  branch 'main' set up to track 'origin/main'.
-  alessandrotornabene@MacBook-Pro-4 refertazioneFacile %
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+alessandrotornabene@MacBook-Pro-4 refertazioneFacile %
+```
