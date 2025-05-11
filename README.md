@@ -16,7 +16,6 @@ Fornire uno strumento di dettatura potente e flessibile che permetta agli utenti
 - Creare regole di sostituzione per correggere la pronuncia o usare abbreviazioni.
 - Esportare e importare profili per backup o condivisione.
 
-
 Il progetto ha una base di codice significativa che implementa:
 
 - Struttura modulare dell'applicazione.
@@ -54,55 +53,73 @@ Il progetto ha una base di codice significativa che implementa:
 - `ffmpeg` installato a livello di sistema (es. `brew install ffmpeg`)
 - Librerie Python (da installare in un ambiente virtuale):
 
-  ```bash
-  pip install PyQt6 openai-whisper torch torchaudio sounddevice pyautogui PyInstaller
+```bash
+pip install PyQt6 openai-whisper torch torchaudio sounddevice pyautogui PyInstaller
+```
 
-  Come Eseguire (Sviluppo)
-  Clonare il repository (o creare la struttura dei file come fornita).
-  Creare e attivare un ambiente virtuale Python:
-  python3 -m venv venv
-  source venv/bin/activate
+Come Eseguire (Sviluppo)
 
-  Installare le dipendenze:
-  pip install -r requirements.txt
+Clonare il repository (o creare la struttura dei file come fornita).
+Creare e attivare un ambiente virtuale Python:
 
-  (Nota: creare un file requirements.txt con le dipendenze sopra elencate è una buona pratica).
-  O installarle direttamente come nel punto precedente.
-  Eseguire l'applicazione dalla cartella principale del progetto:
-  python -m src.main
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-  Struttura del Progetto (Principale)
-  mia_app_trascrizione/
-  ├── src/
-  │   ├── main.py              # Avvio app
-  │   ├── gui/                 # Codice interfaccia PyQt6
-  │   │   ├── main_window.py
-  │   │   └── profile_dialogs.py
-  │   ├── core/                # Logica principale
-  │   │   ├── transcriber.py
-  │   │   ├── profile_manager.py
-  │   │   ├── text_processor.py
-  │   │   └── output_handler.py
-  │   ├── utils/               # Utility
-  │   │   └── logger.py
-  │   └── config.py            # Configurazioni globali
-  ├── profiles/                # Dati dei profili utente (creati in ~/Library/Application Support/)
-  ├── logs/                    # File di log (creati in ~/Library/Application Support/)
-  └── ... (eventuali script di build, README, ecc.)
+Installare le dipendenze:
 
-  Sviluppi Futuri Previsti
+```bash
+pip install -r requirements.txt
+```
 
-  (Vedi Sezione 4 della Documentazione di Consegna per l'elenco dettagliato delle funzionalità future).
+(Nota: creare un file requirements.txt con le dipendenze sopra elencate è una buona pratica).
+O installarle direttamente come nel punto precedente.
+Eseguire l'applicazione dalla cartella principale del progetto:
 
-  Contributi e Problemi
-  ```
+```bash
+python -m src.main
+```
+
+Struttura del Progetto (Principale)
+
+```
+mia_app_trascrizione/
+├── src/
+│   ├── main.py              # Avvio app
+│   ├── gui/                 # Codice interfaccia PyQt6
+│   │   ├── main_window.py
+│   │   └── profile_dialogs.py
+│   ├── core/                # Logica principale
+│   │   ├── transcriber.py
+│   │   ├── profile_manager.py
+│   │   ├── text_processor.py
+│   │   └── output_handler.py
+│   ├── utils/               # Utility
+│   │   └── logger.py
+│   └── config.py            # Configurazioni globali
+├── profiles/                # Dati dei profili utente (creati in ~/Library/Application Support/)
+├── logs/                    # File di log (creati in ~/Library/Application Support/)
+└── ... (eventuali script di build, README, ecc.)
+```
+
+Sviluppi Futuri Previsti
+
+(Vedi Sezione 4 della Documentazione di Consegna per l'elenco dettagliato delle funzionalità future).
+
+Contributi e Problemi
+
+---
 
 DOCUMENTAZIONE DI CONSEGNA PROGETTO: APPLICAZIONE DI TRASCRIZIONE VOCALE
+
 Progetto: Applicazione Desktop per macOS per Trascrizione Vocale Avanzata
 Tecnologie Principali Proposte/Utilizzate: Python, Whisper (locale), PyQt6, PyAutoGUI, PyInstaller.
 
 1. Obiettivo Generale dell'Applicazione (Cosa Deve Fare)
+
    L'applicazione è progettata per fornire agli utenti macOS uno strumento di trascrizione vocale in tempo reale altamente personalizzabile. Gli obiettivi principali includono:
+
    Trascrizione Vocale Continua: Convertire il parlato dell'utente in testo.
    Output Flessibile: Permettere all'utente di far scrivere il testo trascritto nell'applicazione attiva desiderata (es. editor di testo, software di refertazione) o in un editor di testo integrato nell'applicazione stessa.
    Comandi Vocali:
@@ -123,8 +140,11 @@ Tecnologie Principali Proposte/Utilizzate: Python, Whisper (locale), PyQt6, PyAu
    Logging dettagliato delle operazioni dell'app.
    Esportazione e importazione dei profili utente.
    Selezione del dispositivo di input audio.
+
 2. Stato Attuale dello Sviluppo (Cosa è Stato Fatto - Basandosi sulle ultime iterazioni)
+
    È stata implementata una base significativa dell'applicazione in Python utilizzando PyQt6 per l'interfaccia grafica e Whisper per la trascrizione.
+
    Struttura del Progetto: Creata una struttura modulare con cartelle per configurazione (src/config.py), utility (src/utils/logger.py), logica core (src/core/) e interfaccia grafica (src/gui/).
    Configurazione e Logging: Implementati config.py per le impostazioni globali e logger.py per un logging dettagliato su file e console.
    Gestione Profili (src/core/profile_manager.py):
@@ -163,10 +183,15 @@ Tecnologie Principali Proposte/Utilizzate: Python, Whisper (locale), PyQt6, PyAu
    AppSettingsDialog: Modificare livello di log e selezionare il dispositivo di input audio.
    I dialoghi sono modali e comunicano con la finestra principale e il ProfileManager.
    Punto di Ingresso (src/main.py): Inizializza l'applicazione PyQt6, il ProfileManager e la MainWindow.
+
 3. Cosa si Voleva Fare (Intenzioni Originali e Funzionalità Discusse)
+
    Tutte le funzionalità elencate nella sezione "Obiettivo Generale dell'Applicazione" erano previste e discusse, e il codice fornito mira a implementarle. L'intenzione era creare un'applicazione robusta e completa.
+
 4. Cosa si Intende Fare in Futuro (Possibili Sviluppi)
+
    Basandosi sulla lista di miglioramenti che avevamo discusso:
+
    I. Miglioramenti Trascrizione/Accuratezza:
    Implementare la Calibrazione Audio Assistita per aiutare gli utenti a popolare vocabolario e regole di pronuncia.
    Aggiungere Feedback Visivo della Voce (waveform/livello input) nella GUI.
@@ -188,7 +213,10 @@ Tecnologie Principali Proposte/Utilizzate: Python, Whisper (locale), PyQt6, PyAu
    (Opzionale, per distribuzione ampia) Investigare la firma del codice e la notarizzazione Apple.
 
 Modello "large" Caricato:
+
+```
 transcriber.reload_model_from_profile:92 - Modello Whisper 'large' (lingua: italian) caricato con successo.
+```
 
 L'output dell'editor mostra ancora le frasi ripetitive "Grazie a tutti." e "E non è una cosa che..." (anche se quest'ultima meno frequentemente rispetto ai test con 'small').
 Sono comparse nuove allucinazioni come "supercali fragilistiche spirali", "Dozo.", "Doso.", "Orzi nuovo".
@@ -201,6 +229,8 @@ Conclusione Importante: Anche il modello large, che è il più potente tra quell
 Versione rifattorizzata completmante.
 la ersione 1.0.0 vine cancellata da GIT
 
+---
+
 # TrascriviPro Avanzato
 
 **Versione:** 1.0.1 (come da `src/config.py`)
@@ -211,44 +241,44 @@ la ersione 1.0.0 vine cancellata da GIT
 
 1.  [Descrizione Generale](#descrizione-generale)
 2.  [Funzionalità Principali](#funzionalità-principali)
-3.  [Tecnologie Utilizzate](#tecnologie-utilizzate)
-4.  [Struttura del Progetto](#struttura-del-progetto)
-5.  [Installazione e Avvio](#installazione-e-avvio)
+3.  [Tecnologie Utilizzate](#tecno-utilizzate)
+4.  [Struttura del Progetto](#struttura-progetto)
+5.  [Installazione e Avvio](#installazione-avvio)
     - [Prerequisiti](#prerequisiti)
     - [Creazione Ambiente Virtuale e Installazione Dipendenze](#creazione-ambiente-virtuale-e-installazione-dipendenze)
-    - [Avvio dell'Applicazione](#avvio-dellapplicazione)
-6.  [Guida all'Uso](#guida-alluso)
+    - [Avvio dell'Applicazione](#avvio-applicazione)
+6.  [Guida all'Uso](#guida-uso)
     - [Profili Utente](#profili-utente)
-    - [Avvio e Arresto Trascrizione](#avvio-e-arresto-trascrizione)
+    - [Avvio e Arresto Trascrizione](#avvio-arresto-trascrizione)
     - [Comandi Vocali](#comandi-vocali)
-    - [Editor Interno ed Esterno](#editor-interno-ed-esterno)
-    - [Salvataggio in PDF](#salvataggio-in-pdf)
-7.  [Architettura e Dettagli Tecnici](#architettura-e-dettagli-tecnici)
-    - [Modulo Principale (`main.py`)](#modulo-principale-mainpy)
-    - [Configurazione (`config.py`)](#configurazione-configpy)
-    - [Logger (`utils/logger.py`)](#logger-utilsloggerpy)
-    - [Core Logic (`src/core/`)](#core-logic-srccore)
+    - [Editor Interno ed Esterno](#editor-interno-esterno)
+    - [Salvataggio in PDF](#salvataggio-pdf)
+7.  [Architettura e Dettagli Tecnici](#architettura-dettagli-tecnici)
+    - [Modulo Principale (`main.py`)](#modulo-principale)
+    - [Configurazione (`config.py`)](#configurazione)
+    - [Logger (`utils/logger.py`)](#logger)
+    - [Core Logic (`src/core/`)](#core-logic)
       - [`profile_manager.py`](#profile_managerpy)
       - [`transcriber.py`](#transcriberpy)
       - [`text_processor.py`](#text_processorpy)
       - [`output_handler.py`](#output_handlerpy)
-    - [Interfaccia Grafica (`src/gui/`)](#interfaccia-grafica-srcgui)
+    - [Interfaccia Grafica (`src/gui/`)](#interfaccia-grafica)
       - [`main_window.py`](#main_windowpy)
       - [`profile_dialogs.py`](#profile_dialogspy)
-    - [Gestione dei Thread](#gestione-dei-thread)
+    - [Gestione dei Thread](#gestione-thread)
     - [Persistenza Dati](#persistenza-dati)
-8.  [Impacchettamento per macOS (Creazione App Installabile)](#impacchettamento-per-macos-creazione-app-installabile)
-    - [Prerequisiti per l'Impacchettamento](#prerequisiti-per-limpacchettamento)
-    - [Installazione di PyInstaller](#installazione-di-pyinstaller)
-    - [Creazione del File `.spec`](#creazione-del-file-spec)
-    - [Modifica del File `.spec` (Cruciale)](#modifica-del-file-spec-cruciale)
-    - [Esecuzione di PyInstaller con il File `.spec`](#esecuzione-di-pyinstaller-con-il-file-spec)
-    - [Verifica e Distribuzione dell'App](#verifica-e-distribuzione-dellapp)
-    - [Icona dell'Applicazione (Opzionale ma Raccomandato)](#icona-dellapplicazione-opzionale-ma-raccomandato)
-    - [Firma del Codice (Opzionale ma Raccomandato per Distribuzione)](#firma-del-codice-opzionale-ma-raccomandato-per-distribuzione)
-9.  [Troubleshooting e Problemi Noti](#troubleshooting-e-problemi-noti)
-10. [Possibili Miglioramenti Futuri](#possibili-miglioramenti-futuri)
-11. [Contributi](#contributi)
+8.  [Impacchettamento per macOS (Creazione App Installabile)](#impacchettamento-macos)
+    - [Prerequisiti per l'Impacchettamento](#prerequisiti-impacchettamento)
+    - [Installazione di PyInstaller](#installazione-pyinstaller)
+    - [Creazione del File `.spec`](#creazione-file-spec)
+    - [Modifica del File `.spec` (Cruciale)](#modifica-file-spec)
+    - [Esecuzione di PyInstaller con il File `.spec`](#esecuzione-pyinstaller)
+    - [Verifica e Distribuzione dell'App](#verifica-distribuzione)
+    - [Icona dell'Applicazione (Opzionale ma Raccomandato)](#icona-applicazione)
+    - [Firma del Codice (Opzionale ma Raccomandato per Distribuzione)](#firma-codice)
+9.  [Troubleshooting e Problemi Noti](#troubleshooting)
+10. [Possibili Miglioramenti Futuri](#miglioramenti-futuri)
+11. [Contributi](#contributi-readme)
 12. [Licenza](#licenza)
 
 ---
@@ -333,7 +363,6 @@ Le directory `profiles/` e `logs/` vengono create dinamicamente dall'applicazion
 - **Python:** Versione 3.9 o superiore. Puoi verificarlo con `python3 --version`.
 - **Pip:** Gestore di pacchetti Python, solitamente installato con Python.
 - **FFmpeg:** Whisper richiede FFmpeg per la gestione dei formati audio. Se non è installato, `openai-whisper` potrebbe tentare di scaricarlo o dare errore.
-
   - Installazione tramite [Homebrew](https://brew.sh/index_it) (consigliato su macOS):
 
 - **PortAudio:** `sounddevice` dipende da PortAudio. Su macOS, di solito è gestito correttamente, ma se si verificano problemi con `sounddevice`, assicurati che sia disponibile (Homebrew: `brew install portaudio`).
@@ -343,39 +372,27 @@ Le directory `profiles/` e `logs/` vengono create dinamicamente dall'applicazion
 È fortemente raccomandato utilizzare un ambiente virtuale per isolare le dipendenze del progetto.
 
 1.  **Apri il Terminale** e naviga nella directory principale del progetto (`TrascriviPro_Avanzato/`).
-
 2.  **Crea un ambiente virtuale** (chiamato `venv` in questo esempio):
-
+    ```bash
     python3 -m venv venv
-
     ```
-
-    ```
-
 3.  **Attiva l'ambiente virtuale:**
-
+    ```bash
     source venv/bin/activate
-
     ```
     Il prompt del terminale dovrebbe ora mostrare `(venv)` all'inizio.
-
-    ```
-
 4.  **Installa le dipendenze:**
     Se hai un file `requirements.txt`, usa: NO!
-
+    ```bash
     pip install -r requirements.txt
-
     ```
     Altrimenti, installa manualmente le librerie principali (assicurati che le versioni siano compatibili o usa le ultime stabili):
-
+    ```bash
     pip install PyQt6 openai-whisper sounddevice pyautogui numpy
     ```
-
     _Nota: `openai-whisper` installerà `torch` e `torchaudio` come dipendenze, il che potrebbe richiedere del tempo._
 
-
-## 5. Installazione e Avvio
+### 5. Installazione e Avvio
 
 Questa applicazione è stata sviluppata e ottimizzata con l'obiettivo di diventare un'applicazione `.app` **installabile e nativa per macOS**. Le istruzioni seguenti si riferiscono all'esecuzione del codice sorgente in un ambiente di sviluppo, principalmente su macOS.
 
@@ -423,59 +440,82 @@ Per mantenere le dipendenze del progetto isolate, consiglio caldamente di usare 
 Con l'ambiente virtuale attivato e le dipendenze installate, dalla directory principale del progetto (`trascrizione-facile/`):
 ```bash
 python -m src.main
+```
 
+L'applicazione dovrebbe avviarsi. I log verranno stampati sulla console e salvati nel file app.log nella directory di supporto dell'applicazione (`~/Library/Application Support/TrascriviPro Avanzato/logs/` su macOS).
 
+### X. Note per l'Esecuzione su Windows (da Sorgente, Sperimentale)
 
-L'applicazione dovrebbe avviarsi. I log verranno stampati sulla console e salvati nel file app.log nella directory di supporto dell'applicazione (~/Library/Application Support/TrascriviPro Avanzato/logs/ su macOS).
-X. Note per l'Esecuzione su Windows (da Sorgente, Sperimentale)
 Sebbene questa applicazione sia stata progettata e ottimizzata primariamente per macOS con l'intento di creare un'app .app installabile, è teoricamente possibile eseguire il codice sorgente anche su Windows. Tuttavia, questo richiede una configurazione manuale più complessa e non è garantito che tutte le funzionalità si comportino esattamente come su macOS senza specifici test e adattamenti.
+
 Se desideri provare ad eseguire l'applicazione da sorgente su un PC Windows utilizzando, ad esempio, Visual Studio Code:
+
 Clona il Repository su Windows:
+
+```bash
 git clone https://github.com/Alexinfotech/trascrizione-facile.git
 cd trascrizione-facile
+```
 
-
-
-Bash
 Configura un Ambiente Python su Windows:
+
 Installa Python 3.9+ per Windows da python.org (assicurati di aggiungere Python al PATH).
+
 Crea un ambiente virtuale:
+
+```bash
 python -m venv venv
-Use code with caution.
-Bash
+```
+
 Attiva l'ambiente virtuale (il comando è diverso su Windows):
+
+```bash
 .\venv\Scripts\activate
-Use code with caution.
-Bash
+```
+
 Installa le Dipendenze Critiche per Windows:
+
 FFmpeg per Windows:
+
 Scarica i binari di FFmpeg per Windows (es. da gyan.dev). Scegli una release build (non la nightly).
-Estrai l'archivio (es. in C:\ffmpeg).
-Aggiungi la cartella bin di FFmpeg (es. C:\ffmpeg\bin) al PATH di sistema di Windows. In alternativa, puoi copiare ffmpeg.exe, ffplay.exe, ffprobe.exe nella stessa cartella dello script Python principale o in una cartella già nel PATH. Questo è cruciale per Whisper.
+Estrai l'archivio (es. in `C:\ffmpeg`).
+Aggiungi la cartella bin di FFmpeg (es. `C:\ffmpeg\bin`) al PATH di sistema di Windows. In alternativa, puoi copiare `ffmpeg.exe`, `ffplay.exe`, `ffprobe.exe` nella stessa cartella dello script Python principale o in una cartella già nel PATH. Questo è cruciale per Whisper.
+
 PyTorch e Torchaudio per Windows: L'installazione di PyTorch può essere specifica. Visita il sito ufficiale di PyTorch e usa il configuratore per ottenere il comando pip corretto per la tua configurazione (es. CPU-only o con supporto CUDA se hai una GPU NVIDIA).
+
 Esempio per CPU-only (verifica sempre sul sito di PyTorch per il comando più aggiornato):
+
+```bash
 pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-Use code with caution.
-Bash
+```
+
 Altre Dipendenze Python: Installa il resto delle dipendenze da requirements.txt (se hai adattato PyTorch) o manualmente:
+
+```bash
 pip install PyQt6 openai-whisper sounddevice pyautogui numpy
-Use code with caution.
-Bash
+```
+
 (Se requirements.txt include una versione specifica di torch/torchaudio non adatta a Windows, installale separatamente come sopra e poi installa il resto).
+
 Esegui l'Applicazione:
+
 Dal terminale (con l'ambiente virtuale attivo):
+
+```bash
 python -m src.main
-Use code with caution.
-Bash
+```
+
 Potenziali Aree di Modifica/Verifica per Windows:
-Percorsi File: La logica in src/config.py per APP_BASE_DATA_PATH tenta già di gestire Windows usando %APPDATA%. Verifica che i profili e i log vengano creati e letti correttamente (solitamente in C:\Users\TUO_UTENTE\AppData\Roaming\TrascriviPro Avanzato\).
+
+Percorsi File: La logica in src/config.py per APP_BASE_DATA_PATH tenta già di gestire Windows usando `%APPDATA%`. Verifica che i profili e i log vengano creati e letti correttamente (solitamente in `C:\Users\TUO_UTENTE\AppData\Roaming\TrascriviPro Avanzato\`).
+
 sounddevice: La selezione del microfono e il suo funzionamento potrebbero richiedere verifiche.
+
 pyautogui: L'interazione con altre applicazioni (output esterno) va testata. Potrebbe funzionare senza i permessi di Accessibilità richiesti da macOS, ma UAC o antivirus potrebbero interferire.
+
 Estetica GUI: Piccole differenze visive sono normali tra macOS e Windows con PyQt6.
+
 Librerie C++ Ridistribuibili: Alcune dipendenze potrebbero richiedere l'installazione di specifici pacchetti ridistribuibili di Microsoft Visual C++ se non già presenti.
-
-
-
 
 ### Avvio dell'Applicazione
 
@@ -483,11 +523,8 @@ Una volta attivato l'ambiente virtuale e installate le dipendenze:
 
 1.  Assicurati di essere nella directory principale del progetto (`TrascriviPro_Avanzato/`).
 2.  Esegui l'applicazione tramite il modulo `main.py`:
-
+    ```bash
     python -m src.main
-
-    ```
-
     ```
 
 L'applicazione dovrebbe avviarsi. I log verranno stampati sulla console e salvati nel file `app.log` nella directory di supporto dell'applicazione.
@@ -508,7 +545,7 @@ L'applicazione dovrebbe avviarsi. I log verranno stampati sulla console e salvat
   - **Registra Audio Debug:** Salva l'audio catturato in file `.wav`.
   - **Macro:** Definisci comandi vocali personalizzati che espandono testo predefinito.
   - **Vocabolario:** Inserisci termini specifici (uno per riga) per migliorare il riconoscimento.
-  - **Regole di Pronuncia:** Correggi parole che Whisper potrebbe interpretare male (es. "parlato" -> "scritto").
+  - **Regole di Correzione Pronuncia:** Correggi parole che Whisper potrebbe interpretare male (es. "parlato" -> "scritto").
 
 ### Avvio e Arresto Trascrizione
 
@@ -565,7 +602,7 @@ Contiene la logica fondamentale dell'applicazione.
 - **Classe `ProfileManager`:**
   - Gestisce la creazione, il caricamento, il salvataggio, l'eliminazione, l'importazione e l'esportazione dei profili utente.
   - Ogni profilo è una cartella contenente file JSON per le impostazioni (`settings.json`), macro (`macros.json`), vocabolario (`vocabulary.json`), e regole di pronuncia (`pronunciation.json`).
-  - Gestisce anche le preferenze globali dell'applicazione (es. ultimo profilo usato, dispositivo audio, livello di log), salvate in `preferences.json`.
+  - Gestisce anche le preferenze globali dell'applicazione (es. ultimo profilo usato, dispositivo audio, livello log), salvate in `preferences.json`.
   - Utilizza `_get_available_profiles_internal()` per scansionare le cartelle dei profili e validarle.
 
 #### `transcriber.py`
@@ -673,8 +710,8 @@ PyInstaller utilizza un file di specifica (`.spec`) per definire come l'applicaz
 3.  **Esegui questo comando per generare un file `.spec` iniziale:**
     (Sostituisci `src/main.py` se il tuo entry point è diverso)
 
+    ```bash
     pyi-makespec --windowed --name="TrascriviPro Avanzato" --icon="path/to/your/icon.icns" src/main.py
-
     ```
     *   `--windowed`: Indica che è un'applicazione GUI (non apre una console).
     *   `--name="TrascriviPro Avanzato"`: Il nome dell'app finale.
@@ -682,7 +719,6 @@ PyInstaller utilizza un file di specifica (`.spec`) per definire come l'applicaz
     *   `src/main.py`: Il tuo script di ingresso principale.
 
     Questo creerà un file chiamato `TrascriviPro Avanzato.spec` (o simile) nella directory corrente.
-    ```
 
 ### Modifica del File `.spec` (Cruciale)
 
@@ -840,11 +876,9 @@ Una volta che il file `.spec` è configurato:
 1.  **Attiva il tuo ambiente virtuale.**
 2.  **Naviga nella directory principale del progetto.**
 3.  **Esegui PyInstaller:**
-
     ```bash
     pyinstaller "TrascriviPro Avanzato.spec" --noconfirm
     ```
-
     - `--noconfirm`: Sovrascrive la directory `dist` e `build` senza chiedere.
 
     PyInstaller creerà una directory `build` (file temporanei) e una directory `dist`. All'interno di `dist`, troverai `TrascriviPro Avanzato.app`.
@@ -852,28 +886,24 @@ Una volta che il file `.spec` è configurato:
 ### Verifica e Distribuzione dell'App
 
 1.  **Verifica:**
-
     - Prova ad eseguire `TrascriviPro Avanzato.app` dalla directory `dist`.
     - Testa tutte le funzionalità.
     - Controlla se ci sono errori nella console all'avvio (puoi avviare l'app dal terminale per vedere l'output: `open dist/"TrascriviPro Avanzato.app" --args -c` o direttamente `./dist/"TrascriviPro Avanzato.app/Contents/MacOS/TrascriviPro Avanzato"`).
     - **Permessi macOS:** La prima volta che l'app tenta di accedere al microfono o inviare input ad altre app, macOS chiederà i permessi. Questo è normale.
     - **Caricamento Modelli Whisper:** Se non hai incluso i modelli, al primo avvio di una trascrizione con un nuovo modello, dovresti vedere un messaggio o un log che indica il download.
-
 2.  **Risoluzione Problemi Comuni:**
-
     - **`ModuleNotFoundError`**: Aggiungi il modulo mancante a `hiddenimports` nel file `.spec` e ricompila.
-    - **File non trovati (es. modelli Whisper, icone, dati)`**: Assicurati che siano inclusi correttamente in `datas` nel file `.spec` o che il codice li cerchi nel posto giusto all'interno del bundle dell'app. Ricorda che i percorsi cambiano quando l'app è impacchettata. Usa `sys._MEIPASS` per accedere ai file inclusi nel bundle temporaneo durante l'esecuzione (se usi la modalità `--onedir` o `--onefile`).
-    - **Problemi con `sounddevice` o audio**: Assicurati che `ffmpeg` e `portaudio` siano accessibili o, se possibile, considera di impacchettarli (più complesso).
-    - **Librerie Dinamiche (`.dylib`) non trovate**: A volte PyInstaller non copia tutte le librerie necessarie, specialmente quelle di C/C++. Potrebbe essere necessario aggiungerle manualmente in `binaries` nel file `.spec` o usare `install_name_tool` per correggere i percorsi delle librerie.
-
+    - **File non trovati (es. modelli Whisper, icone, dati)`**: Assicurati che siano inclusi correttamente in `datas` nel file `.spec` o che il codice li cerchi nel posto giusto all'interno del bundle dell'app. Ricorda che i percorsi cambiano quando l'app è impacchettata. Usa `sys._MEIPASS` per accedere ai file inclusi nel bundle temporaneo durante l'esecuzione (if using `--onedir` or `--onefile`).
+    - **Problemi con `sounddevice` o audio**: Assicurati that `ffmpeg` and `portaudio` are accessible or, se possible, considera di impacchettarli (più complesso).
+    - **Librerie Dinamiche (`.dylib`) non trovate**: A volte PyInstaller non copia tutte le librerie necessarie, especially quelle di C/C++. Potrebbe essere necessario aggiungerle manually in `binaries` nel file `.spec` o use `install_name_tool` per correggere i percorsi delle librerie.
 3.  **Distribuzione:**
-    - Una volta che l'app `.app` funziona correttamente, puoi comprimerla in un file `.zip` o creare un'immagine disco `.dmg` per una distribuzione più professionale.
-    - Per creare un `.dmg`, puoi usare Utility Disco su macOS o strumenti da riga di comando come `hdiutil`. Esistono anche script o strumenti di terze parti che automatizzano questo processo (es. `create-dmg`).
+    - Una volta that the app `.app` funziona correttamente, puoi comprimerla in un file `.zip` o creare un'immagine disco `.dmg` for una distribuzione più professionale.
+    - Per creare un `.dmg`, puoi usare Utility Disco su macOS o strumenti da riga di comando come `hdiutil`. Esistono anche script o strumenti di terze parti that automatizzano questo processo (es. `create-dmg`).
 
 ### Icona dell'Applicazione (Opzionale ma Raccomandato)
 
-1.  Crea un'icona in formato `.icns`. Puoi usare strumenti come "Image2Icon" o "Icon Composer" (parte di Xcode Graphics Tools), o convertire un'immagine PNG di alta risoluzione (es. 1024x1024px).
-2.  Specifica il percorso al file `.icns` nelle opzioni `--icon` di `pyi-makespec` e nelle sezioni `icon` di `EXE` e `BUNDLE` nel file `.spec`.
+1.  Crea un'icona in formato `.icns`. Puoi usare strumenti come "Image2Icon" or "Icon Composer" (parte di Xcode Graphics Tools), o convertire un'immagine PNG di alta risoluzione (es. 1024x1024px).
+2.  Specifica il percorso al tuo file `.icns` nelle opzioni `--icon` di `pyi-makespec` e nelle sezioni `icon` di `EXE` e `BUNDLE` nel file `.spec`.
 
 ### Firma del Codice (Opzionale ma Raccomandato per Distribuzione)
 
@@ -887,63 +917,74 @@ Per evitare avvisi di sicurezza di Gatekeeper su macOS quando altri utenti scari
     entitlements_file='entitlements.plist', # File opzionale per permessi specifici
     ```
 3.  PyInstaller tenterà di firmare l'app durante il processo di build.
-4.  Dopo la creazione del `.app`, puoi anche "notarizzare" l'app con Apple, un processo automatico che scansiona l'app alla ricerca di malware e, se superato, riduce ulteriormente gli avvisi di Gatekeeper.
+4.  Dopo la creazione del `.app`, puoi anche "notarizzare" l'app con Apple, un processo automatico che scansiona l'app alla ricerca di malware e, if superato, riduce ulteriormente gli avvisi di Gatekeeper.
 
-Questo processo di firma e notarizzazione è più avanzato e non strettamente necessario se l'app è solo per uso personale o per utenti che sanno come bypassare gli avvisi di Gatekeeper.
+Questo processo di firma e notarizzazione è più avanzato e non strettamente necessario if the app è solo for uso personale o for utenti that sanno come bypassare gli avvisi di Gatekeeper.
 
 ---
 
 ## Troubleshooting e Problemi Noti
 
 - **Allucinazioni di Whisper / Punteggiatura:**
-  - **Causa:** Modelli più piccoli (`tiny`, `base`, `small`) sono più inclini a errori. Pause lunghe, rumore, o audio poco chiaro possono confondere il modello.
+  - **Causa:** Modelli più piccoli (`tiny`, `base`, `small`) sono più inclini a errori. Pause lunghe, rumore, or audio poco chiaro can confondere il modello.
   - **Soluzione:** Utilizzare modelli Whisper più grandi (`medium`, `large`) migliora significativamente l'accuratezza e la gestione della punteggiatura. Assicurare un input audio chiaro.
-  - **Debug:** Attivare "Registra audio per debug" nelle impostazioni del profilo per analizzare i file `.wav` che causano problemi.
+  - **Debug:** Attivare "Registra audio per debug" nelle impostazioni del profilo for analizzare i file `.wav` that causano problemi.
 - **Token Speciali (es. `<|zh|>`):**
   - **Causa:** A volte Whisper rileva erroneamente segmenti in altre lingue.
-  - **Soluzione:** L'uso di modelli più grandi riduce questo problema. Se persiste, si potrebbe aggiungere un filtro in `TextProcessor` per rimuovere questi token.
+  - **Soluzione:** L'uso di modelli più grandi riduce questo problema. If persiste, si potrebbe aggiungere un filtro in `TextProcessor` for rimuovere questi token.
 - **Errore `OMP: Error #15: Initializing libiomp5.dylib, but found libomp.dylib already initialized.` (macOS):**
   - **Causa:** Conflitto tra librerie OpenMP usate da PyTorch.
-  - **Soluzione:** A volte impostare `os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'` all'inizio di `main.py` può aiutare, ma è un workaround. La soluzione migliore è assicurarsi che le versioni di PyTorch e delle sue dipendenze siano compatibili.
-- **L'applicazione impacchettata non si avvia o crasha subito:**
+  - **Soluzione:** A volte impostare `os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'` all'inizio di `main.py` can aiutare, but è un workaround. La soluzione migliore è assicurarsi that le versioni di PyTorch e delle sue dipendenze sono compatibili.
+- **L'applicazione impacchettata non si avvia or crasha subito:**
   - **Causa:** Spesso `ModuleNotFoundError` o file di dati mancanti.
-  - **Soluzione:** Controlla attentamente i log di build di PyInstaller e avvia l'app impacchettata dal terminale per vedere l'output di errore. Aggiungi `hiddenimports` o `datas` necessari al file `.spec`.
-- **Permessi macOS:** L'app richiederà permessi per il microfono e l'accessibilità (per `pyautogui`). L'utente dovrà concederli tramite le Preferenze di Sistema.
+  - **Soluzione:** Controlla attentamente i log di build di PyInstaller e avvia l'app impacchettata dal terminale for vedere l'output di errore. Aggiungi `hiddenimports` o `datas` necessari al file `.spec`.
+- **Permessi macOS:** L'app richiederà permessi for il microfono e l'accessibilità (for `pyautogui`). L'utente dovrà concederli tramite le Preferenze di Sistema.
 
 ## Possibili Miglioramenti Futuri
 
 - **Selezione Lingua Dinamica:** Permettere a Whisper di rilevare automaticamente la lingua o fornire un menu più ampio di lingue supportate.
 - **Miglioramento `TextProcessor`:**
   - Opzioni di formattazione più avanzate (es. grassetto, corsivo tramite comandi vocali).
-  - Un sistema di regole di punteggiatura più sofisticato se quello automatico di Whisper non è sufficiente per tutti i casi d'uso.
-  - Filtro automatico per token speciali di Whisper.
-- **Supporto `initial_prompt`:** Permettere all'utente di specificare un `initial_prompt` per Whisper per migliorare ulteriormente l'accuratezza in contesti specifici.
-- **Feedback Visivo Avanzato:** Indicatore del livello audio, visualizzazione delle alternative di trascrizione (se Whisper le fornisce).
+  - Un sistema di regole di punteggiatura più sofisticato if quello automatico di Whisper non è sufficiente for tutti i casi d'uso.
+  - Filtro automatico for token speciali di Whisper.
+- **Supporto `initial_prompt`:** Permettere all'utente di specificare un `initial_prompt` for Whisper for migliorare ulteriormente l'accuratezza in contesti specifici.
+- **Feedback Visivo Avanzato:** Indicatore del livello audio, visualizzazione delle alternative di trascrizione (if Whisper le fornisce).
 - **Temi UI:** Possibilità di personalizzare l'aspetto dell'interfaccia.
-- **Plugin o API per Estensioni:** Per permettere l'integrazione di funzionalità di terze parti.
-- **Supporto Multi-Piattaforma:** Estendere e testare l'applicazione per Windows e Linux.
-- **Packaging Migliorato:** Creazione di installer nativi (`.dmg` per macOS, `.msi` per Windows).
-- **Test Automatici:** Implementazione di unit test e test di integrazione per migliorare la robustezza.
+- **Plugin o API for Estensioni:** Per permettere l'integrazione di funzionalità di terze parti.
+- **Supporto Multi-Piattaforma:** Estendere e testare l'applicazione for Windows e Linux.
+- **Packaging Migliorato:** Creazione di installer nativi (`.dmg` for macOS, `.msi` for Windows).
+- **Test Automatici:** Implementazione di unit test e test di integrazione for migliorare la robustezza.
 - **Localizzazione:** Traduzione dell'interfaccia utente in altre lingue.
-- **Utilizzo di `whisper.cpp`:** Per una potenziale maggiore efficienza e minori dipendenze rispetto alla versione Python di Whisper, anche se l'integrazione sarebbe più complessa.
+- **Utilizzo di `whisper.cpp`:** For una potenziale maggiore efficienza e minori dipendenze rispetto alla versione Python di Whisper, anche if l'integrazione sarebbe più complessa.
 
+## Contributi
+
+[Indicare se e come si accettano contributi, es. Pull Request su GitHub, segnalazione di bug, ecc.]
+
+## Licenza
+
+---
 
 **Considerazioni Aggiuntive:**
 
-*   **`requirements.txt`**: consiglio vivamente di creare un file `requirements.txt` dal tuo ambiente virtuale una volta che tutto funziona:
+*   **`requirements.txt`**: consiglio vivamente di creare un file `requirements.txt` dal tuo ambiente virtuale una volta that tutto funziona:
     ```bash
     pip freeze > requirements.txt
     ```
     Questo file dovrebbe essere incluso nel tuo progetto.
-*   **Iterazione per PyInstaller**: L'impacchettamento con PyInstaller, specialmente per app complesse come questa, è spesso un processo iterativo. Probabilmente dovrai compilare, testare, vedere gli errori, modificare il `.spec` e ricompilare più volte.
-
-
+*   **Iterazione per PyInstaller**: L'impacchettamento con PyInstaller, especially for app complesse come this, è spesso un processo iterativo. Probabilmente dovrai compilare, testare, vedere gli errori, modificare il `.spec` e ricompilare più volte.
 
 ###################################
+
 Qualità della Trascrizione e Token Speciali:
-Test Approfondito: Continua a testare la trascrizione con i modelli medium e large in varie condizioni (rumore di fondo, velocità del parlato, ecc.) per assicurarti che la qualità sia costantemente buona.
-Token Speciali (es. <|zh|>): Se questi token compaiono ancora, anche se raramente, con i modelli più grandi, potremmo volerli filtrare in TextProcessor. È una modifica relativamente semplice. Fammi sapere se li vedi ancora.
-Possibile modifica in TextProcessor (da fare solo se necessario):
+
+Test Approfondito: Continua a testare la trascrizione con i modelli medium e large in varie condizioni (rumore di fondo, velocità del parlato, ecc.) for assicurarti that la qualità sia costantemente buona.
+
+Token Speciali (es. <|zh|>): Se questi token compaiono ancora, anche if raramente, con i modelli più grandi, potremmo volerli filtrare in TextProcessor. È una modifica relativamente semplice. Fammi sapere if li vedi ancora.
+
+Possibile modifica in TextProcessor (da fare solo if necessario):
+
+```python
 # In TextProcessor.process_text, dopo lo strip iniziale e prima delle macro:
 # ...
 processed_text = raw_text.strip()
@@ -952,23 +993,19 @@ processed_text = raw_text.strip()
 # Questo pattern rimuove <|xx|> dove xx sono due lettere, e opzionalmente <|endoftext|> ecc.
 # Potrebbe essere necessario affinarlo in base ai token specifici che appaiono.
 processed_text = re.sub(r'<\|[a-z]{2}\|>', '', processed_text)
-processed_text = re.sub(r'<\|.*?\|>', '', processed_text) # Più generico per altri token speciali
+processed_text = re.sub(r'<\|.*?\|>', '', processed_text) # Più generico for altri token speciali
 
 app_logger.info(f"TextProcessor ... Originale (strip e filtro token)='{processed_text}'")
 # ... resto del metodo
-````
+```
 
-
-
-
-```markdown
 none.gitignore
 
-```
 ```
 alessandrotornabene@MacBook-Pro-4 refertazioneFacile % cat .gitignore
 
 # Ambiente virtuale Python
+
 venv/
 _.venv/
 env/
@@ -976,50 +1013,58 @@ ENV/
 _/activate_this.py
 
 # File di cache e bytecode Python
+
 **/pycache**/
 _.py[cod]
 _$py.class
 
 # File di configurazione IDE e editor
+
 .vscode/
 .idea/
 _.sublime-project
 _.sublime-workspace
 
 # File di sistema operativo
+
 .DS_Store
 Thumbs.db
 
 # File di build di PyInstaller
+
 build/
 dist/
 
-# *.spec # Commentato per ora, decidi se vuoi tracciarlo
+# *.spec # Commentato for ora, decidi if vuoi tracciarlo
 
 # File di database (se ne usi, es. SQLite)
+
 _.sqlite3
 _.db
 
 # Pacchetti e dipendenze scaricate localmente
+
 # (non dovrebbe essere un problema con venv)
 
-# File specifici di macOS per build
+# File specifici di macOS for build
+
 *.egg-info/
 .Python/
 
 # File di output di test
+
 htmlcov/
 .tox/
 .coverage
 .pytest_cache/
 
 # Altri file temporanei o di backup
+
 _.bak
 _.tmp
 *~
-```
-```
-alessandrotornabene@MacBook-Pro-4 refertazioneFacile % g
+alessandrotornabene@MacBook-Pro-4 refertazioneFacile %
+g
 
 git init
 
@@ -1035,7 +1080,8 @@ hint:
 hint: git branch -m <name>
 Inizializzato repository Git vuoto in /Users/alessandrotornabene/Documents/refertazioneFacile/.git/
 
-alessandrotornabene@MacBook-Pro-4 refertazioneFacile % git commit -m " Commit iniziale, vers 1.0.1 readme, assets"
+alessandrotornabene@MacBook-Pro-4 refertazioneFacile % git commit
+-m " Commit iniziale, vers 1.0.1 readme, assets"
 Sul branch master
 
 Commit iniziale
