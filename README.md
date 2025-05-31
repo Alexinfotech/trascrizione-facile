@@ -1276,5 +1276,45 @@ Invitiamo a contribuire allo sviluppo di TrascriviPro Avanzato tramite pull requ
 
 # source venv/bin/activate 
 # pip install openai-whisper
+# pip freeze > requirements.txt
 # pip install -r requirements.txt
 # python -m src.main 
+
+## è il momento di passare alla creazione dell' .app standalone con PyInstaller.
+# pip install PyInstaller
+# brew install sox
+# pip uninstall torchaudio
+# pip install torchaudio --no-cache-dir
+# pip install pynput tiktoken appdirs
+# xattr -cr "dist/TrascriviPro Avanzato.app
+# python       
+
+Python 3.9.20 (main, Oct  8 2024, 13:09:48) 
+[Clang 16.0.0 (clang-1600.0.26.3)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+import whisper
+import os
+print(os.path.dirname(whisper.__file__))
+
+>>> exit()
+#xattr -cr "dist/TrascriviPro Avanzato.app"
+# rm -rf build dist
+# pyinstaller "TrascriviPro Avanzato.spec" --noconfirm
+#rew install create-dmg
+# rm "TrascriviPro_Avanzato_1.0.1.dmg"
+
+# create-dmg \
+  --volname "TrascriviPro Avanzato" \
+  --volicon "app_icon.icns" \
+  --window-pos 200 120 \
+  --window-size 800 450 \
+  --icon-size 128 \
+  --text-size 14 \
+  --icon "TrascriviPro Avanzato.app" 220 230 \
+  --hide-extension "TrascriviPro Avanzato.app" \
+  --app-drop-link 580 230 \
+  --hdiutil-quiet \
+  "TrascriviPro_Avanzato_1.0.1.dmg" \
+  "dist/TrascriviPro Avanzato.app"
+
+  
