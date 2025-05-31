@@ -1268,3 +1268,4 @@ Invitiamo a contribuire allo sviluppo di TrascriviPro Avanzato tramite pull requ
 
 ## Licenza
 
+##GNU GENERAL PUBLIC LICENSE
