@@ -23,7 +23,10 @@ Thumbs.db
 # File di build di PyInstaller
 build/
 dist/
-# *.spec # Commentato per ora, decidi se vuoi tracciarlo
+# *.spec # Commentato perché vogliamo tracciare il nostro file .spec specifico
+
+# File di distribuzione binari (come DMG)
+*.dmg
 
 # File di database (se ne usi, es. SQLite)
 *.sqlite3
