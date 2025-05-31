@@ -1269,3 +1269,12 @@ Invitiamo a contribuire allo sviluppo di TrascriviPro Avanzato tramite pull requ
 ## Licenza
 
 # GNU GENERAL PUBLIC LICENSE
+
+
+
+## passaggi per prova da termiale visual studio code
+
+# source venv/bin/activate 
+# pip install openai-whisper
+# pip install -r requirements.txt
+# python -m src.main 
